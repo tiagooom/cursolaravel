@@ -17,19 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/empresa', function(){
-    return view('empresa');
-});
 
-Route::get('/produto/{id}/{cat}', function($id, $cat)
-{
-    return "O id do produto é: ". $id . "<br> A categoria do produto é ".$cat;
-});
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+],  function () {
 
-Route::get("/news", function(){
-    return view('news');
-})->name('noticias');
+    Route::get('dashboard', function () {
+        return "dashboard";
+    })->name('dashboard');
 
-Route::get('/novidades', function(){
-    return redirect()->route('noticias');
+    Route::get('admin/users', function () {
+        return 'users';
+    });
+    
+    Route::get('admin/clientes', function () {
+        return 'clientes';
+    });
 });
