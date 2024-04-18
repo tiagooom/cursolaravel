@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->double('preco');
             $table->string('slug');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
 
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
