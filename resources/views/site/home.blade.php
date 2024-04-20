@@ -1,66 +1,24 @@
-@extends('site.layout');
-@section('title', 'Essa é a noss pagina HOME')
+@extends('site.layout')
+@section('title', 'Essa é a nossa página HOME')
 @section('conteudo')
     
 <div class="row container">
+  @foreach ($produtos as $produto)
     <div class="col s12 m3">
-        <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ $produto->imagem }}" class="imagem-card">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">{{ Str::limit($produto->nome,20) }}</span>
+          <p>{{ $produto->descricao }}</p>
+        </div>
       </div>
     </div>
-
-    <div class="col s12 m3">
-        <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <div class="col s12 m3">
-        <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-      </div>
-    </div>
-    
-    <div class="col s12 m3">
-        <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    
+  @endforeach
 </div>
+
 
 
 @endsection
