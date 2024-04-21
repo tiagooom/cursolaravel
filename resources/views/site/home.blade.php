@@ -2,7 +2,7 @@
 @section('title', 'Essa é a nossa página HOME')
 @section('conteudo')
     
-<div class="row container">
+<div class="row container valign-wrapper center-align">
   @foreach ($produtos as $produto)
     <div class="col s12 m3">
       <div class="card">
@@ -18,7 +18,11 @@
     </div>
   @endforeach
 </div>
-
+<div class="row container">
+  <ul class="pagination center-align">
+    {{ $produtos->links() }}
+  </ul>
+</div>
 
 
 @endsection
