@@ -1,5 +1,5 @@
 @extends('site.layout')
-@section('title', 'Essa é a nossa página HOME')
+@section('title', 'HOME')
 @section('conteudo')
     
 <div class="row container valign-wrapper center-align">
@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-image">
           <img src="{{ $produto->imagem }}" class="imagem-card">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
+          <a href=" {{ route('site/details', $produto->slug) }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
         </div>
         <div class="card-content">
           <span class="card-title">{{ Str::limit($produto->nome,20) }}</span>

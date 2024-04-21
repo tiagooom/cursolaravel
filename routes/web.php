@@ -20,18 +20,12 @@ route::resource('produtos', ProdutoController::class);
 
 route::get('/', [SiteController::class,'index'])->name('site/index');
 
-//Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
-
-//Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('produto.show');*/
+route::get('/produto/{slug}', [SiteController::class,'details'])->name('site/details');
 
 
 
 
-/*Route::get('/', function () {
-    return view('welcome');
-});
-
-
+/*
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
