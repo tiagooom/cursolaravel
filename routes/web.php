@@ -19,8 +19,8 @@ use App\Http\Controllers\SiteController;
 route::resource('produtos', ProdutoController::class);
 
 route::get('/', [SiteController::class,'index'])->name('site/index');
-
 route::get('/produto/{slug}', [SiteController::class,'details'])->name('site/details');
+route::get('/categoria/{id}', [SiteController::class,'categoria'])->name('site/categoria');
 
 
 
