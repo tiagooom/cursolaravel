@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\CarrinhoController;
 
 
 /*
@@ -21,6 +22,9 @@ route::resource('produtos', ProdutoController::class);
 route::get('/', [SiteController::class,'index'])->name('site/index');
 route::get('/produto/{slug}', [SiteController::class,'details'])->name('site/details');
 route::get('/categoria/{id}', [SiteController::class,'categoria'])->name('site/categoria');
+
+route::get('/carrinho', [CarrinhoController::class,'carrinhoLista'])->name('site/carrinho');
+route::post('/carrinho', [CarrinhoController::class,'adicionaCarrinho'])->name('site/addcarrinho');
 
 
 
