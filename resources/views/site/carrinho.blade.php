@@ -4,6 +4,17 @@
 
 
 <div class="row container">
+    @if ($mensagem = Session::get('sucesso'))
+    <div class="card green">
+        <div class="card-content white-text">
+          <span class="card-title">Parabens!</span>
+          <p>{{$mensagem}}</p>
+        </div>
+    </div>
+    
+                        
+    @endif    
+
     <h5>Carrinho possui {{ count($itens) }} produtos.</h5>
     
     <table>
@@ -17,7 +28,8 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody>                                       
+           
             @foreach ($itens as $item)
              
             <tr>
