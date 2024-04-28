@@ -33,9 +33,10 @@ route::post('/atualizar', [CarrinhoController::class,'atualizaCarrinho'])->name(
 route::get('/limpar', [CarrinhoController::class,'limparCarrinho'])->name('site/limparcarrinho');
 
 route::view('/login', 'login/form')->name('login/form');
-route::post('/login',   [LoginController::class, 'auth'])->name('login/auth');
+route::post('/auth',   [LoginController::class, 'auth'])->name('login/auth');
+route::get('/logout',   [LoginController::class, 'logout'])->name('login/logout');
 
-route::get('/admin/dashboard', [DashboardController::class,'index'])->name('admin/dashaboard');
+route::get('/admin/dashboard', [DashboardController::class,'index'])->name('admin/dashboard');
 
 
 /*
