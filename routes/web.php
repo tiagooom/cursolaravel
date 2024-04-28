@@ -36,7 +36,7 @@ route::view('/login', 'login/form')->name('login/form');
 route::post('/auth',   [LoginController::class, 'auth'])->name('login/auth');
 route::get('/logout',   [LoginController::class, 'logout'])->name('login/logout');
 
-route::get('/admin/dashboard', [DashboardController::class,'index'])->name('admin/dashboard');
+route::get('/admin/dashboard', [DashboardController::class,'index'])->name('admin/dashboard')->middleware(['auth', 'checkemail']);
 
 
 /*
