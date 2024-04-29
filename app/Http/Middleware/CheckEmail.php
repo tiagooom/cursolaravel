@@ -23,7 +23,7 @@ class CheckEmail
         $data = explode('@', $email);
         $servidorEmail = $data[1];        
 
-        if ($servidorEmail != 'contato.com') {
+        if ($servidorEmail != 'gmail.com') {
             return redirect()->route("login/form");
         }
         return $next($request);

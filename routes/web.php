@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CarrinhoController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -21,6 +22,7 @@ use App\Http\Controllers\LoginController;
 */
 
 route::resource('produtos', ProdutoController::class);
+route::resource('users', UserController::class);
 
 route::get('/', [SiteController::class,'index'])->name('site/index');
 route::get('/produto/{slug}', [SiteController::class,'details'])->name('site/details');
@@ -35,6 +37,7 @@ route::get('/limpar', [CarrinhoController::class,'limparCarrinho'])->name('site/
 route::view('/login', 'login/form')->name('login/form');
 route::post('/auth',   [LoginController::class, 'auth'])->name('login/auth');
 route::get('/logout',   [LoginController::class, 'logout'])->name('login/logout');
+route::get('/register',   [LoginController::class, 'create'])->name('login/create');
 
 route::get('/admin/dashboard', [DashboardController::class,'index'])->name('admin/dashboard')->middleware(['auth', 'checkemail']);
 
